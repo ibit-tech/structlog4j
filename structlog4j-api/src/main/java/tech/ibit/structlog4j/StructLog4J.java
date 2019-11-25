@@ -45,10 +45,13 @@ public class StructLog4J {
                 // 动态定义路径
                 String formatterPath = properties.getProperty(StructLog4jProperty.KEY_FORMATTER);
 
-                String[] paths = formatterPath.split(StructLog4jProperty.FORMATTER_METHOD_SEPARATOR);
-                Method method = Class.forName(paths[0]).getDeclaredMethod(paths[1]);
-                formatter = (Formatter) method.invoke(null);
-
+                if (formatterPath != null) {
+                    String[] paths = formatterPath.split(StructLog4jProperty.FORMATTER_METHOD_SEPARATOR);
+                    Method method = Class.forName(paths[0]).getDeclaredMethod(paths[1]);
+                    formatter = (Formatter) method.invoke(null);
+                } else {
+                    formatter = KvPairFormatter.getInstance();
+                }
                 transStackTrace = Boolean.valueOf(properties.getProperty(StructLog4jProperty.KEY_TRANS_STACK_TRACE, "true"));
 
             } else {
