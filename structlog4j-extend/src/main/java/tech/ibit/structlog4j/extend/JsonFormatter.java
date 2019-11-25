@@ -1,4 +1,4 @@
-package tech.ibit.structlog4j.extend.formater;
+package tech.ibit.structlog4j.extend;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

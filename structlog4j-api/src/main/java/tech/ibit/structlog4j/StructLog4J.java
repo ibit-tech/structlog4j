@@ -97,7 +97,7 @@ public class StructLog4J {
     /**
      * 获取日志格式化对象
      *
-     * @return
+     * @return 格式化对象
      */
     public Formatter getFormatter() {
         return formatter;

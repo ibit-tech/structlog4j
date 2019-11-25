@@ -1,4 +1,4 @@
-package tech.ibit.structlog4j.extend.formater;
+package tech.ibit.structlog4j.extend;
 
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
