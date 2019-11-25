@@ -14,7 +14,6 @@
 
     <properties>
         <javadoc.skip>false</javadoc.skip>
-        <gpg.skip>false</gpg.skip>
         <common-lang.version>2.1</common-lang.version>
     </properties>
 

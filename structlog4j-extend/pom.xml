@@ -14,7 +14,6 @@
 
     <properties>
         <javadoc.skip>false</javadoc.skip>
-        <gpg.skip>false</gpg.skip>
         <structlog4j-api.version>1.0</structlog4j-api.version>
         <fastjson.version>1.1.37</fastjson.version>
         <snakeyaml.version>1.25</snakeyaml.version>

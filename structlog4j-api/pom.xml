@@ -15,7 +15,6 @@
 
     <properties>
         <javadoc.skip>false</javadoc.skip>
-        <gpg.skip>false</gpg.skip>
         <structlog4j-test-base.version>1.0</structlog4j-test-base.version>
     </properties>
 

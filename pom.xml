@@ -7,6 +7,11 @@
     <groupId>tech.ibit</groupId>
     <artifactId>structlog4j</artifactId>
     <version>1.0</version>
+
+    <name>structlog4j</name>
+    <url>https://github.com/ibit-tech/structlog4j</url>
+    <description>structlog4j</description>
+
     <modules>
         <module>structlog4j-api</module>
         <module>structlog4j-extend</module>
@@ -21,10 +26,8 @@
         <lombok.version>1.16.20</lombok.version>
         <slf4j-api.version>1.7.25</slf4j-api.version>
         <junit.version>4.12</junit.version>
+        <gpg.skip>false</gpg.skip>
     </properties>
-
-    <url>https://github.com/ibit-tech/structlog4j</url>
-    <description>structlog4j</description>
 
     <scm>
         <url>https://github.com/ibit-tech/structlog4j</url>
@@ -83,6 +86,28 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <version>1.6</version>
+                <configuration>
+                    <skip>${gpg.skip}</skip>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 
     <distributionManagement>
