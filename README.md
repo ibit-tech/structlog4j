@@ -8,10 +8,10 @@
 
 ```
 // 基础包
-compile 'tech.ibit:structlog4j-api:1.0'
+compile 'tech.ibit:structlog4j-api:1.1'
 
 // 支持json, yaml格式等扩展
-compile 'tech.ibit:structlog4j-extend:1.0'
+compile 'tech.ibit:structlog4j-extend:1.1'
 
 ```
 
@@ -23,14 +23,14 @@ compile 'tech.ibit:structlog4j-extend:1.0'
     <dependency>
         <groupId>tech.ibit</groupId>
         <artifactId>structlog4j-api</artifactId>
-        <version>1.0</version>
+        <version>1.1</version>
     </dependency>
     
     <!--扩展包-->
     <dependency>
         <groupId>tech.ibit</groupId>
         <artifactId>structlog4j-extend</artifactId>
-        <version>1.0</version>
+        <version>1.1</version>
     </dependency>
 ```
 
