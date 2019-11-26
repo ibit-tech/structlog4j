@@ -56,6 +56,31 @@ public class StructLogger implements Logger {
     }
 
     @Override
+    public void error(String[] messages, Object... params) {
+        log(isErrorEnabled(), slf4jLogger::error, slf4jLogger::error, messages, params);
+    }
+
+    @Override
+    public void warn(String[] messages, Object... params) {
+        log(isWarnEnabled(), slf4jLogger::warn, slf4jLogger::warn, messages, params);
+    }
+
+    @Override
+    public void info(String[] messages, Object... params) {
+        log(isInfoEnabled(), slf4jLogger::info, slf4jLogger::info, messages, params);
+    }
+
+    @Override
+    public void debug(String[] messages, Object... params) {
+        log(isDebugEnabled(), slf4jLogger::debug, slf4jLogger::debug, messages, params);
+    }
+
+    @Override
+    public void trace(String[] messages, Object... params) {
+        log(isTraceEnabled(), slf4jLogger::trace, slf4jLogger::trace, messages, params);
+    }
+
+    @Override
     public boolean isErrorEnabled() {
         return slf4jLogger.isErrorEnabled();
     }
@@ -80,6 +105,27 @@ public class StructLogger implements Logger {
         return slf4jLogger.isTraceEnabled();
     }
 
+
+    /**
+     * 写入日志
+     *
+     * @param needLog              判断是否需要打印日志
+     * @param logConsumer          日志消费者
+     * @param exceptionLogConsumer 异常日志消费者
+     * @param messages             消息片段
+     * @param params               参数
+     */
+    private void log(boolean needLog, LogConsumer logConsumer
+            , ExceptionLogConsumer exceptionLogConsumer, String[] messages, Object... params) {
+        if (!needLog) {
+            return;
+        }
+
+        Formatter formatter = StructLog4J.getFormatter();
+        String message = formatter.getMessage(messages);
+        doLog(formatter, logConsumer, exceptionLogConsumer, message, params);
+    }
+
     /**
      * 写入日志
      *
@@ -101,6 +147,21 @@ public class StructLogger implements Logger {
         }
 
         Formatter formatter = StructLog4J.getFormatter();
+        doLog(formatter, logConsumer, exceptionLogConsumer, message, params);
+    }
+
+
+    /**
+     * 写入日志
+     *
+     * @param formatter            日志格式对象
+     * @param logConsumer          日志消费者
+     * @param exceptionLogConsumer 异常日志消费者
+     * @param message              消息
+     * @param params               参数
+     */
+    private void doLog(Formatter formatter, LogConsumer logConsumer, ExceptionLogConsumer exceptionLogConsumer
+            , String message, Object[] params) {
         boolean transStackTrace = StructLog4J.isTransStackTrace();
 
         // 异常
@@ -303,8 +364,8 @@ public class StructLogger implements Logger {
     /**
      * 打印错误日志
      *
-     * @param formatter       格式化对象
-     * @param messages        message片段
+     * @param formatter 格式化对象
+     * @param messages  message片段
      */
     private void logError(Formatter formatter, Object[] messages) {
         slf4jLogger.error(formatter.format(messages));

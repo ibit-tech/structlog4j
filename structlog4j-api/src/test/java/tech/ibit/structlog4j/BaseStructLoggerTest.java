@@ -28,6 +28,8 @@ public class BaseStructLoggerTest {
 
     private String errorMessage = "Something error!";
 
+    private String[] errorMessages = new String[] {"Something error, {}: '{}'", "user", "ibit-tech"};
+
     @Before
     public void setUp() {
         // 默认设置不转换异常
@@ -42,6 +44,13 @@ public class BaseStructLoggerTest {
         logger.error(errorMessage);
         assertEquals(1, entries.size());
         assertMessage(entries, 0, Level.ERROR, "_message=Something error!", false);
+    }
+
+    @Test
+    public void baseMessagesTest() {
+        logger.error(errorMessages);
+        assertEquals(1, entries.size());
+        assertMessage(entries, 0, Level.ERROR, "_message=Something error, user: 'ibit-tech'", false);
     }
 
     @Test
@@ -127,6 +136,14 @@ public class BaseStructLoggerTest {
         logger.error(errorMessage, throwable);
         assertEquals(1, entries.size());
         assertMessage(entries, 0, Level.ERROR, "_message=Something error!&_errorMessage=Test Exception", true);
+    }
+
+    @Test
+    public void exceptionMessages() {
+        Throwable throwable = new RuntimeException("Test Exception");
+        logger.error(errorMessages, throwable);
+        assertEquals(1, entries.size());
+        assertMessage(entries, 0, Level.ERROR, "_message=Something error, user: 'ibit-tech'&_errorMessage=Test Exception", true);
     }
 
     @Test
@@ -227,6 +244,22 @@ public class BaseStructLoggerTest {
         assertMessage(entries, 2, Level.INFO, "_message=Info&user=ibit-tech", false);
         assertMessage(entries, 3, Level.DEBUG, "_message=Debug&user=ibit-tech", false);
         assertMessage(entries, 4, Level.TRACE, "_message=Trace&user=ibit-tech", false);
+    }
+
+    @Test
+    public void allLevel2() {
+        logger.error(new String[] {"Error, {}={}", "user", "ibit-tech"});
+        logger.warn(new String[] {"Warn, {}={}", "user", "ibit-tech"});
+        logger.info(new String[] {"Info, {}={}", "user", "ibit-tech"});
+        logger.debug(new String[] {"Debug, {}={}", "user", "ibit-tech"});
+        logger.trace(new String[] {"Trace, {}={}", "user", "ibit-tech"});
+
+        assertEquals(entries.toString(), 5, entries.size());
+        assertMessage(entries, 0, Level.ERROR, "_message=Error, user=ibit-tech", false);
+        assertMessage(entries, 1, Level.WARN, "_message=Warn, user=ibit-tech", false);
+        assertMessage(entries, 2, Level.INFO, "_message=Info, user=ibit-tech", false);
+        assertMessage(entries, 3, Level.DEBUG, "_message=Debug, user=ibit-tech", false);
+        assertMessage(entries, 4, Level.TRACE, "_message=Trace, user=ibit-tech", false);
     }
 
     @Test

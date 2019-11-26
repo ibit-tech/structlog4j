@@ -50,6 +50,48 @@ public interface Logger {
 
 
     /**
+     * ERROR日志
+     *
+     * @param messages 消息片段
+     * @param params   参数
+     */
+    void error(String[] messages, Object... params);
+
+    /**
+     * WARN日志
+     *
+     * @param messages 消息片段
+     * @param params   参数
+     */
+    void warn(String[] messages, Object... params);
+
+    /**
+     * INFO日志
+     *
+     * @param messages 消息片段
+     * @param params   参数
+     */
+    void info(String[] messages, Object... params);
+
+    /**
+     * DEBUG日志
+     *
+     * @param messages 消息片段
+     * @param params   参数
+     */
+    void debug(String[] messages, Object... params);
+
+
+    /**
+     * TRACE日志
+     *
+     * @param messages 消息片段
+     * @param params   参数
+     */
+    void trace(String[] messages, Object... params);
+
+
+    /**
      * 是否为ERROR级别
      *
      * @return 是否为ERROR级别
