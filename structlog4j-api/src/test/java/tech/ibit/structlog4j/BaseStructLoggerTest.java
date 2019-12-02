@@ -28,7 +28,7 @@ public class BaseStructLoggerTest {
 
     private String errorMessage = "Something error!";
 
-    private String[] errorMessages = new String[] {"Something error, {}: '{}'", "user", "ibit-tech"};
+    private Object[] errorMessages = new Object[] {"Something error, {}: '{}'", "user", "ibit-tech"};
 
     @Before
     public void setUp() {

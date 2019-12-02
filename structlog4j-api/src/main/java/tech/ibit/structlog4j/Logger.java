@@ -55,7 +55,7 @@ public interface Logger {
      * @param messages 消息片段
      * @param params   参数
      */
-    void error(String[] messages, Object... params);
+    void error(Object[] messages, Object... params);
 
     /**
      * WARN日志
@@ -63,7 +63,7 @@ public interface Logger {
      * @param messages 消息片段
      * @param params   参数
      */
-    void warn(String[] messages, Object... params);
+    void warn(Object[] messages, Object... params);
 
     /**
      * INFO日志
@@ -71,7 +71,7 @@ public interface Logger {
      * @param messages 消息片段
      * @param params   参数
      */
-    void info(String[] messages, Object... params);
+    void info(Object[] messages, Object... params);
 
     /**
      * DEBUG日志
@@ -79,7 +79,7 @@ public interface Logger {
      * @param messages 消息片段
      * @param params   参数
      */
-    void debug(String[] messages, Object... params);
+    void debug(Object[] messages, Object... params);
 
 
     /**
@@ -88,7 +88,7 @@ public interface Logger {
      * @param messages 消息片段
      * @param params   参数
      */
-    void trace(String[] messages, Object... params);
+    void trace(Object[] messages, Object... params);
 
 
     /**

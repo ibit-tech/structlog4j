@@ -8,10 +8,10 @@
 
 ```
 // 基础包
-compile 'tech.ibit:structlog4j-api:1.1'
+compile 'tech.ibit:structlog4j-api:1.2'
 
 // 支持json, yaml格式等扩展
-compile 'tech.ibit:structlog4j-extend:1.1'
+compile 'tech.ibit:structlog4j-extend:1.2'
 
 ```
 
@@ -23,14 +23,14 @@ compile 'tech.ibit:structlog4j-extend:1.1'
     <dependency>
         <groupId>tech.ibit</groupId>
         <artifactId>structlog4j-api</artifactId>
-        <version>1.1</version>
+        <version>1.2</version>
     </dependency>
     
     <!--扩展包-->
     <dependency>
         <groupId>tech.ibit</groupId>
         <artifactId>structlog4j-extend</artifactId>
-        <version>1.1</version>
+        <version>1.2</version>
     </dependency>
 ```
 
@@ -56,6 +56,14 @@ _stackTrace: 异常stack trace信息
 \t: \\t
 \r: \\r
 \n: \\n
+```
+
+### 引入logger
+
+```java
+import tech.ibit.structlog4j.Logger;
+import tech.ibit.structlog4j.StructLoggerFactory;
+private static final Logger log = StructLoggerFactory.getLogger(Test.class);
 ```
 
 ### 默认日志格式(key\-value) 
@@ -168,6 +176,39 @@ transStackTrace=true
 
 ## 用法
 
+### \_message说明(以error为例子)
+
+**Logger**存在一下方法支持**error**级别日志
+
+```
+/**
+ * ERROR日志
+ *
+ * @param message 消息
+ * @param params  参数
+ */
+void error(String message, Object... params);
+
+
+/**
+ * ERROR日志
+ *
+ * @param messages 消息片段
+ * @param params   参数
+ */
+void error(Object[] messages, Object... params);
+```
+
+其中message和messages的区别在于，messages支持传入占位符，eg:
+
+```
+logger.error("Something error, id: 12, username: ibit-tech");
+
+等价于:
+
+logger.error(new Object[] {"Something error, id: {}, username: {}", 12, "ibit-tech"});
+```
+
 ### 使用key-value的方式
 
 ```
@@ -177,7 +218,7 @@ log.error("Something error", "user", "ibit-tech", "age", 100);
 ### 实现`ToLog`对key-value进行包装
 
 ```
-log.error("Something error", (ToLog) () -> new Object[] {"user", "ibit-tech", "age", 101});
+log.error("Something error", (ToLog) () -> new Object[] {"user", "ibit-tech", "age", 1.2});
 ```
 
 ### 异常处理
@@ -189,9 +230,9 @@ log.error("Something error", "user", "ibit-tech", "age", 100, new RuntimeExcepti
 ### 混合使用
 
 ```
-log.error("Something error", (ToLog) () -> new Object[] {"user", "ibit-tech"}, "age", 101);
+log.error("Something error", (ToLog) () -> new Object[] {"user", "ibit-tech"}, "age", 1.2);
 
-log.error("Something error", (ToLog) () -> new Object[] {"user", "ibit-tech"}, "age", 101, (ToLog) () -> new Object[] {"city", "sz"}, new RuntimeException("Test Exception"));
+log.error("Something error", (ToLog) () -> new Object[] {"user", "ibit-tech"}, "age", 1.2, (ToLog) () -> new Object[] {"city", "sz"}, new RuntimeException("Test Exception"));
 ```
 
 ### POJO实现`MapToLog`，toLog()会返回POJO中所有字段

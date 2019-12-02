@@ -56,27 +56,27 @@ public class StructLogger implements Logger {
     }
 
     @Override
-    public void error(String[] messages, Object... params) {
+    public void error(Object[] messages, Object... params) {
         log(isErrorEnabled(), slf4jLogger::error, slf4jLogger::error, messages, params);
     }
 
     @Override
-    public void warn(String[] messages, Object... params) {
+    public void warn(Object[] messages, Object... params) {
         log(isWarnEnabled(), slf4jLogger::warn, slf4jLogger::warn, messages, params);
     }
 
     @Override
-    public void info(String[] messages, Object... params) {
+    public void info(Object[] messages, Object... params) {
         log(isInfoEnabled(), slf4jLogger::info, slf4jLogger::info, messages, params);
     }
 
     @Override
-    public void debug(String[] messages, Object... params) {
+    public void debug(Object[] messages, Object... params) {
         log(isDebugEnabled(), slf4jLogger::debug, slf4jLogger::debug, messages, params);
     }
 
     @Override
-    public void trace(String[] messages, Object... params) {
+    public void trace(Object[] messages, Object... params) {
         log(isTraceEnabled(), slf4jLogger::trace, slf4jLogger::trace, messages, params);
     }
 
@@ -116,7 +116,7 @@ public class StructLogger implements Logger {
      * @param params               参数
      */
     private void log(boolean needLog, LogConsumer logConsumer
-            , ExceptionLogConsumer exceptionLogConsumer, String[] messages, Object... params) {
+            , ExceptionLogConsumer exceptionLogConsumer, Object[] messages, Object... params) {
         if (!needLog) {
             return;
         }
