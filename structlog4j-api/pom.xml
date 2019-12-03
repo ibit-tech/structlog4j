@@ -5,7 +5,7 @@
     <parent>
         <artifactId>structlog4j</artifactId>
         <groupId>tech.ibit</groupId>
-        <version>1.3-SNAPSHOT</version>
+        <version>1.3</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -15,7 +15,7 @@
 
     <properties>
         <javadoc.skip>false</javadoc.skip>
-        <structlog4j-test-base.version>1.3-SNAPSHOT</structlog4j-test-base.version>
+        <structlog4j-test-base.version>1.3</structlog4j-test-base.version>
     </properties>
 
 
