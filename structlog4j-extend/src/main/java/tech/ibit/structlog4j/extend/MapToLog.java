@@ -3,6 +3,9 @@ package tech.ibit.structlog4j.extend;
 import org.apache.commons.beanutils.BeanMap;
 import tech.ibit.structlog4j.ToLog;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * MapToLog实现
  *
@@ -18,14 +21,24 @@ public interface MapToLog extends ToLog {
     @Override
     default Object[] toLog() {
         BeanMap kvMap = new BeanMap(this);
-        Object[] objects = new Object[(kvMap.size() - 1) * 2];
-        int index = 0;
+
+        // 查询字段并排序
+        int keySize = kvMap.size() - 1;
+        List<String> keys = new ArrayList<>(keySize);
         for (Object key : kvMap.keySet()) {
             if (!"class".equals(key)) {
-                Object value = kvMap.get(key);
-                objects[index++] = key;
-                objects[index++] = value;
+                keys.add(((String) key));
             }
+        }
+        keys.sort(String::compareTo);
+
+        Object[] objects = new Object[keys.size() * 2];
+        int index = 0;
+        for (String key : keys) {
+            Object value = kvMap.get(key);
+            objects[index++] = key;
+            objects[index++] = value;
+
         }
         return objects;
     }
