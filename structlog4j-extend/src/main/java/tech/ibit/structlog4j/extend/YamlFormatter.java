@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Yaml格式化
  *
- * @author IBIT-TECH
+ * @author IBIT程序猿
  */
 public class YamlFormatter implements Formatter {
 

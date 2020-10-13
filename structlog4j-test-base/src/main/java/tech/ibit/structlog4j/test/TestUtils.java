@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * 测试工具类
  *
- * @author IBIT-TECH
+ * @author IBIT程序猿
  */
 @UtilityClass
 public class TestUtils {

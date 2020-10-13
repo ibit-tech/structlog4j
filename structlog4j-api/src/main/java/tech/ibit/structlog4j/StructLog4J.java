@@ -11,7 +11,7 @@ import java.util.Properties;
 /**
  * 全局配置
  *
- * @author IBIT-TECH
+ * @author IBIT程序猿
  */
 @UtilityClass
 @Slf4j

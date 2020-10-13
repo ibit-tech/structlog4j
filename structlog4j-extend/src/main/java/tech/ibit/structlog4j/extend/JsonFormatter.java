@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Json对日志格式化类
  *
- * @author IBIT-TECH
+ * @author IBIT程序猿
  */
 public class JsonFormatter implements Formatter {
 

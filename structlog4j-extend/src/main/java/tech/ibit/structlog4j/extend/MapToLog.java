@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * MapToLog实现
  *
- * @author IBIT-TECH
+ * @author IBIT程序猿
  */
 public interface MapToLog extends ToLog {
 

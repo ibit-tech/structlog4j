@@ -9,7 +9,7 @@ import java.util.Optional;
 /**
  * 结构化日志器
  *
- * @author IBIT-TECH
+ * @author IBIT程序猿
  */
 public class StructLogger implements Logger {
 

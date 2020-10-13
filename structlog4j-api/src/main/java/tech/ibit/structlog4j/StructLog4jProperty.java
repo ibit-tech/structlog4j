@@ -3,7 +3,7 @@ package tech.ibit.structlog4j;
 /**
  * 日志配置文件
  *
- * @author IBIT-TECH
+ * @author IBIT程序猿
  */
 public interface StructLog4jProperty {
 

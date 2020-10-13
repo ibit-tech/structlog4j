@@ -8,7 +8,7 @@ import java.util.Optional;
 /**
  * 日志对象
  *
- * @author IBIT-TECH
+ * @author IBIT程序猿
  */
 @Value
 public class LogEntry {

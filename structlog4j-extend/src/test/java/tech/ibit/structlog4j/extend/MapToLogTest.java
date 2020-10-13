@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 /**
- * @author IBIT-TECH
+ * @author IBIT程序猿
  */
 public class MapToLogTest {
 

@@ -5,7 +5,7 @@ import java.util.Map;
 /**
  * 键-值对日志格式化类
  *
- * @author IBIT-TECH
+ * @author IBIT程序猿
  */
 public class KvPairFormatter implements Formatter {
 

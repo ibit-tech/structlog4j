@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * 键-值日志格式化类测试用例
  *
- * @author IBIT-TECH
+ * @author IBIT程序猿
  */
 public class KvPairFormatterTest {
 

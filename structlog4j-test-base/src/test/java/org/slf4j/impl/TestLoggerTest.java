@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author IBIT-TECH
+ * @author IBIT程序猿
  */
 public class TestLoggerTest {
 

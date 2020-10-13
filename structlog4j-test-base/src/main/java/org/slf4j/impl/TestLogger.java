@@ -12,7 +12,7 @@ import java.util.Optional;
 /**
  * 测试Logger实现
  *
- * @author IBIT-TECH
+ * @author IBIT程序猿
  */
 @Value
 public class TestLogger implements Logger {

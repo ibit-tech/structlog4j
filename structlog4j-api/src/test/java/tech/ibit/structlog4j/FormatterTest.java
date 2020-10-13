@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Formatter默认方法的测试用例
  *
- * @author IBIT-TECH
+ * @author IBIT程序猿
  */
 public class FormatterTest {
 

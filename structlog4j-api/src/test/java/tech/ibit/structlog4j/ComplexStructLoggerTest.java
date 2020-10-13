@@ -14,7 +14,7 @@ import static tech.ibit.structlog4j.test.TestUtils.assertMessage;
 /**
  * 基础StructLogger测试
  *
- * @author IBIT-TECH
+ * @author IBIT程序猿
  */
 public class ComplexStructLoggerTest {
 

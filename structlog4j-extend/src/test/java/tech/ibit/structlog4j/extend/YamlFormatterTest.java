@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * Yaml格式化类测试用例
  *
- * @author IBIT-TECH
+ * @author IBIT程序猿
  */
 public class YamlFormatterTest {
 

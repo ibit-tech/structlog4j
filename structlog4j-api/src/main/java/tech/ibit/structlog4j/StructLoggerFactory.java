@@ -5,7 +5,7 @@ import lombok.experimental.UtilityClass;
 /**
  * 结构化日志器工厂
  *
- * @author IBIT-TECH
+ * @author IBIT程序猿
  */
 @UtilityClass
 public class StructLoggerFactory {

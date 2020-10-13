@@ -5,7 +5,7 @@ import org.slf4j.ILoggerFactory;
 /**
  * 日志绑定器
  *
- * @author IBIT-TECH
+ * @author IBIT程序猿
  */
 public class StaticLoggerBinder {
 

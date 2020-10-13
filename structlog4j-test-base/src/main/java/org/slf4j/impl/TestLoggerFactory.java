@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 /**
  * 日志工厂实现
  *
- * @author IBIT-TECH
+ * @author IBIT程序猿
  */
 public class TestLoggerFactory implements ILoggerFactory {
 

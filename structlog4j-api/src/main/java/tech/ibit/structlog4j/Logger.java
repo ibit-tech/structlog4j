@@ -3,7 +3,7 @@ package tech.ibit.structlog4j;
 /**
  * 定义日志对象
  *
- * @author IBIT-TECH
+ * @author IBIT程序猿
  */
 public interface Logger {
 
